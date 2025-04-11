@@ -1,12 +1,177 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
+/* إعدادات أساسية */
+:root {
+  --bg-color: #0072ff;
+  --primary-color: #f4f4f4;
+  --card-bg: rgba(0, 0, 0, 0.7);
+  --button-bg: #6c7b8c;
+  --text-color: #ffffff;
+  --shadow-light: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  --card-radius: 25px;
+  --button-radius: 12px;
+  --circle-size: 80px;
 }
-button {
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+
+/* 🌙 الوضع الداكن */
+body.dark-mode {
+  --bg-color: #181a1f;
+  --card-bg: rgba(0, 0, 0, 0.8);
+  --primary-color: #e0e0e0;
+  --text-color: #e0e0e0;
+  --button-bg: #404d5c;
+  --card-radius: 30px;
+}
+
+/* خلفية السماء */
+.sky-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+  z-index: -1;
+}
+
+/* إعدادات عامة للصفحة */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* تصميم التطبيق */
+.weather-app {
+  width: 320px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  padding: 30px;
+  position: relative;
+}
+
+.weather-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--card-radius);
+  box-shadow: 8px 8px 20px var(--shadow-light), -8px -8px 20px var(--shadow-dark);
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.temperature {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--primary-color);
+  margin-top: 10px;
+}
+
+.other-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.info-circle {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 12px;
+  margin: 10px;
+  box-shadow: 4px 4px 10px var(--shadow-light), -4px -4px 10px var(--shadow-dark);
+  transition: all 0.3s ease;
+}
+
+.info-circle:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* تصميم الأزرار على شكل حقول */
+.buttons-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.field-btn {
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 25px; /* الحواف ستكون دائرية */
+  color: var(--text-color);
+  font-size: 16px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px var(--shadow-light);
+  transition: all 0.3s ease;
+  width: 30%; /* الأزرار تشغل 30% من عرض الصفحة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-btn i {
+  margin-left: 8px;
+}
+
+.field-btn:hover {
+  background-color: #4a5662;
+}
+
+/* مؤثر التحميل */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* استجابة للجوال */
+@media (max-width: 400px) {
+  .weather-app {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .buttons-row {
+    flex-direction: column; /* لجعل الأزرار في عمود إذا كان العرض صغير */
+    align-items: center;
+  }
+
+  .field-btn {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
