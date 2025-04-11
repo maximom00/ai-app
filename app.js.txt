@@ -1,41 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تطبيق الطقس</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="weather-app">
-    <div class="sky-background"></div>
-    <div class="weather-card">
-      <h1 id="cityName">المدينة</h1>
-
-      <div class="weather-info">
-        <div id="temperature" class="temperature"></div>
-        <div id="description" class="description"></div>
-        <div id="otherInfo" class="other-info">
-          <div class="info-circle" id="humidity"><span>رطوبة</span></div>
-          <div class="info-circle" id="wind"><span>رياح</span></div>
-          <div class="info-circle" id="compass"><span>اتجاه</span></div>
-        </div>
-      </div>
-
-      <!-- الأزرار في صف واحد -->
-      <div class="buttons-row">
-        <button id="getLocationBtn" class="field-btn" onclick="getWeatherByLocation()">📍 موقعي</button>
-        <button id="getCityBtn" class="field-btn" onclick="getWeatherByCity()">🔎 بحث عن مدينة</button>
-        <button id="reloadBtn" class="field-btn" onclick="reloadWeather()">🔄 إعادة تحميل</button>
-      </div>
-
-      <div id="loadingSpinner" class="spinner" style="display: none;"></div>
-
-      <p id="date"></p>
-      <p id="localTime"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
